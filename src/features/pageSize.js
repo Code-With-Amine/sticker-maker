@@ -4,17 +4,22 @@ import { createSlice } from '@reduxjs/toolkit'
 export const pageSize = createSlice({
   name: 'pageSize',
   initialState: {
-    width: null,
-    height: null
+    paper: {
+      width: null,
+      height: null
+    },
+    stickerSize: null
   },
   reducers: {
     a4_page: (state) => {
-      state.width = 29.7
-      state.height = 21
+      state.paper.width = 29.7
+      state.paper.height = 21
+      state.stickerSize = 4
     },
     a5_page: (state) => {
-        state.width = 21
-        state.height = 14.8
+        state.paper.width = 21
+        state.paper.height = 14.8
+        state.stickerSize = 2
     },
 
   },
