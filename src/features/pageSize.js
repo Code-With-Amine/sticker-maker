@@ -8,18 +8,21 @@ export const pageSize = createSlice({
       width: null,
       height: null
     },
-    stickerSize: null
+    stickerSize: null,
+    limit: null
   },
   reducers: {
     a4_page: (state) => {
       state.paper.width = 29.7
       state.paper.height = 21
       state.stickerSize = 4
+      state.limit = 36
     },
     a5_page: (state) => {
         state.paper.width = 21
         state.paper.height = 14.8
         state.stickerSize = 2
+        state.limit = 32
     },
 
   },

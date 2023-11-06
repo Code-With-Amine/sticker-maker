@@ -1,6 +1,6 @@
-import PageSize from "./components/PageSize";
-import UploadImages from "./components/UploadImages";
-import Collections from './components/StickersCollection';
+import PageSize from "./Layouts/PageSize";
+import UploadImages from "./Layouts/UploadImages";
+import Collections from './Layouts/StickersCollection';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './styles/style.css';
 
