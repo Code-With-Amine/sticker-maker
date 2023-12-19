@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { setImageRef, setExtention } from "../features/printedDiv";
+import {deleteImage} from "../features/images";
 import sun_tornado from "../assets/sun-tornado.svg";
 import { Box } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,6 +20,7 @@ function Collections() {
   const { stickerHeight } = useSelector((state) => state.pageSize);
 
   const linkRef = useRef(null);
+  const deleteStickerRef = useRef(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -85,6 +87,10 @@ function Collections() {
     }
   };
 
+  const HandelStickerDelete = (image) => {
+    dispatch(deleteImage(image))
+  }
+
   return (
     <Box
       className="page-container"
@@ -123,6 +129,7 @@ function Collections() {
           ref={boxRef} // Reference to capture this Box
         >
           {images.map((image, index) => (
+            <Box as="div" position={'relative'}>
             <Box
               as="img"
               src={image}
@@ -130,7 +137,12 @@ function Collections() {
               width={`${stickerWidth}cm`}
               height={`${stickerHeight}cm`}
               className="sticker"
+              onDoubleClick={ () => HandelStickerDelete(image)}
             />
+       {   /*  <Box as={'span'} color={'white'} zIndex={1} position={'absolute'} top={3} right={11}
+              display={'none'}
+            >X</Box>  */}
+            </Box>
           ))}
         </Box>
       </Box>
