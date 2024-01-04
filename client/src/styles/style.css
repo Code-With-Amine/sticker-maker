@@ -3,6 +3,11 @@ body,html{
   margin: 0;
   position: relative;
 }
+
+.bg-blue{
+  background-color: rgb(76, 76, 235);
+}
+
 .page-container {
   background-size: cover;
   background-repeat: no-repeat;

@@ -9,10 +9,8 @@ export const pageSize = createSlice({
       height: null,
       bgColor: 'gray',
     },
-    stickerSize: null,
-    limit: null,
-    stickerWidth: null,
-    stickerHeight: null
+    stickerWidth: 4,
+    stickerHeight: 5
   },
   reducers: {
     a4_page: (state) => {
@@ -20,14 +18,16 @@ export const pageSize = createSlice({
       state.paper.height = 21
       state.stickerWidth = 4
       state.stickerHeight = 3
-      state.limit = 36
     },
     a5_page: (state) => {
         state.paper.width = 21
         state.paper.height = 14.8
         state.stickerWidth = 2
         state.stickerHeight = 2
-        state.limit = 32
+    },
+    customised: (state, actions) => {
+      state.paper.width = actions.payload.width
+      state.paper.height = actions.payload.height
     },
     changeImage: (state, actions) => {
       state.paper.bgColor = actions.payload
@@ -43,6 +43,6 @@ export const pageSize = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { a5_page, a4_page, changeImage, changeHeight, changeWidth } = pageSize.actions
+export const { a5_page, a4_page, changeImage, changeHeight, changeWidth, customised } = pageSize.actions
 
 export default pageSize.reducer

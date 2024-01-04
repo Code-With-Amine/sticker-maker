@@ -18,15 +18,14 @@ function UploadImages() {
   const alertRef = useRef(null);
   const uploaderRef = useRef(null);
   const selectedImages = useSelector((state) => state.stickersImages.images);
-  const { limit } = useSelector((state) => state.pageSize);
   const dispatch = useDispatch();
 
   const handelLinkClik = (e) => {
     const imagesLength = selectedImages.length
-    if( imagesLength === 0 || imagesLength > limit){
+    if( imagesLength === 0){
       e.preventDefault();
       alertRef.current.style.display = 'flex';
-      setWarningMessage(imagesLength === 0 ? `Please upload some images` : `the limit that you can upload is ${limit} images`);
+      setWarningMessage(`Please upload some images`);
     }
   }  
 

@@ -4,6 +4,7 @@ import { Heading, Box, Text } from "@chakra-ui/react";
 import swap from "../assets/swap.png";
 import sun_tornado from '../assets/sun-tornado.svg';
 import { Link } from "react-router-dom";
+import CustomiseSize from '../components/CustomiseSize';
 
 function PageSize() {
   const dispatch = useDispatch();
@@ -143,6 +144,7 @@ function PageSize() {
           </Link>
         </Box>
       </Box>
+            <CustomiseSize dispatch={dispatch} Link={Link} />
     </Box>
   );
 }
